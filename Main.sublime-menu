@@ -1,5 +1,46 @@
 [
     {
+        "id": "tools",
+        "children":
+        [
+            {
+                "caption": "Packages",
+                "id": "packages",
+                "children":
+                [
+                    {
+                        "caption": "Package Syncing",
+                        "children":
+                        [
+                            {
+                                "caption": "Enable Syncing",
+                                "command": "pkg_sync_enable"
+                            },
+                            {
+                                "caption": "Disable Syncing",
+                                "command": "pkg_sync_disable"
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Define Sync Folder",
+                                "command": "pkg_sync_folder"
+                            },
+                            { "caption": "-" },
+                            {
+                                "caption": "Push Settings",
+                                "command": "pkg_sync", "args": {"mode": ["push"]}
+                            },
+                            {
+                                "caption": "Pull Settings",
+                                "command": "pkg_sync", "args": {"mode": ["pull"]}
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "caption": "Preferences",
         "mnemonic": "n",
         "id": "preferences",
@@ -12,13 +53,13 @@
                 "children":
                 [
                     {
-                        "caption": "StataEditor",
+                        "caption": "Package Syncing",
                         "children":
                         [
                             {
                                 "caption": "README",
                                 "command": "open_file",
-                                "args": {"file": "${packages}/StataEditor/Readme.md"}
+                                "args": {"file": "${file_path}/Readme.md"}
                             },
                             {
                                 "caption": "-"
@@ -26,25 +67,12 @@
                             {
                                 "caption": "Settings – Default",
                                 "command": "open_file",
-                                "args": {"file": "${packages}/StataEditor/StataEditor.sublime-settings"}
+                                "args": { "file": "${file_path}/Package Syncing.sublime-settings" }
                             },
                             {
                                 "caption": "Settings – User",
                                 "command": "open_file",
-                                "args": {"file": "${packages}/User/StataEditor.sublime-settings"}
-                            },
-                            {
-                                "caption": "-"
-                            },
-                            {
-                                "caption": "Key Bindings – Default",
-                                "command": "open_file",
-                                "args": {"file": "${packages}/StataEditor/Default (Windows).sublime-keymap"}
-                            },
-                            {
-                                "caption": "Key Bindings – User",
-                                "command": "open_file",
-                                "args": {"file": "${packages}/User/Default (Windows).sublime-keymap"}
+                                "args": { "file": "${packages}/User/Package Syncing.sublime-settings" }
                             }
                         ]
                     }
