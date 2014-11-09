@@ -175,7 +175,12 @@ class Sync(threading.Thread):
         last_remote_data = last_data.get("last_remote_data", {})
 
         # Make target file path and directory
-        target = os.path.join(local_dir, item["key"])
+        target_fn = item["key"]
+        if target_fn==target_fn.lower():
+            sublime.error_message("The bug where files get copied lowercase just happened" )
+            raise Exception
+
+        target = os.path.join(local_dir, target_fn)
         target_dir = os.path.dirname(target)
 
         # Skip if file was just pushed
