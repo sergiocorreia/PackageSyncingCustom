@@ -116,7 +116,7 @@ class Sync(threading.Thread):
             for file_name in file_names:
 
                 if file_name==file_name.lower():
-                    sublime.error_message("[Package Syncing] The bug where files get copied lowercase just happened" )
+                    sublime.error_message("[Package Syncing] The bug where files get copied lowercase just happened:" + filen_name)
                     raise Exception
 
                 full_path = os.path.join(root, file_name)
