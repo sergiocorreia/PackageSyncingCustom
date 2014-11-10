@@ -115,8 +115,8 @@ class Sync(threading.Thread):
 
             for file_name in file_names:
                 file_name = file_name.lower() # We can't use fn as a key if Dropbox autoconverts it to lowercase on Windows!
-                full_path = os.path.join(root, file_name)
-                rel_path = os.path.relpath(full_path, path)
+                full_path = os.path.join(root, file_name).lower()
+                rel_path = os.path.relpath(full_path, path).lower()
 
                 include_matches = [fnmatch.fnmatch(rel_path, p) for p in files_to_include]
                 ignore_matches = [fnmatch.fnmatch(rel_path, p) for p in files_to_ignore]
