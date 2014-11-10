@@ -114,11 +114,7 @@ class Sync(threading.Thread):
             [dir_names.remove(dir) for dir in dir_names if dir in dirs_to_ignore]
 
             for file_name in file_names:
-
-                if file_name==file_name.lower():
-                    sublime.error_message("[Package Syncing] The bug where files get copied lowercase just happened:" + filen_name)
-                    raise Exception
-
+                file_name = file_name.lower() # We can't use fn as a key if Dropbox autoconverts it to lowercase on Windows!
                 full_path = os.path.join(root, file_name)
                 rel_path = os.path.relpath(full_path, path)
 
@@ -181,10 +177,6 @@ class Sync(threading.Thread):
 
         # Make target file path and directory
         target_fn = item["key"]
-        if target_fn==target_fn.lower():
-            sublime.error_message("The bug where files get copied lowercase just happened" )
-            raise Exception
-
         target = os.path.join(local_dir, target_fn)
         target_dir = os.path.dirname(target)
 
